@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+  <head>
+    <title>Holy Triage</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="../bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="../bower_components/jquery-ui/themes/base/all.css">
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <script
+    src="https://code.jquery.com/jquery-3.1.1.js"
+    integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+    crossorigin="anonymous"></script>
+
+    <!-- build:js scripts/ext.js -->
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="../bower_components/angular-animate/angular-animate.js"></script>
+    <script src="../bower_components/angular-aria/angular-aria.js"></script>
+    <script src="../bower_components/angular-material/angular-material.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/jquery-ui/jquery-ui.js"></script>
+    <script src="../bower_components/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body>
+    <ng-view></ng-view>
+  </body>
+
+  <!-- build:app scripts/render.js -->
+  <script>
+    require('./scripts/renderer.js');
+    require('./scripts/service/triageService.js');
+    require('./scripts/triageController.js');
+
+    $(function() {
+      $(".datepicker").datetimepicker({
+        dateFormat: "D M d yy",
+        timeFormat: "HH:mm:ss z"
+      });
+    });
+  </script>
+  <!-- endbuild -->
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "holy-triage",
+  "version": "1.0.0",
+  "description": "Triage Manager",
+  "repository": "",
+  "keywords": [
+    "Electron"
+  ],
+  "scripts": {
+    "install": "bower install && cd app && npm install"
+  },
+  "author": "Ming Kai Chen",
+  "license": "MIT",
+  "devDependencies": {
+    "asar": "^0.12.4",
+    "electron": "^1.4.1",
+    "electron-prebuilt": "^1.4.13",
+    "fs-jetpack": "^0.10.5",
+    "gulp": "^3.9.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-uglify": "^2.0.0",
+    "gulp-usemin": "^0.3.27",
+    "q": "^1.4.1",
+    "rcedit": "^0.7.0"
+  }
+}
