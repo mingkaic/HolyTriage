@@ -60,6 +60,7 @@
 		}
 		
 		function createActivity(activity) {
+			console.log(activity);
 			var deferred = $q.defer();
 			var query = 'INSERT INTO triage SET ?';
 			connection.query(query, activity, function (err, res) {

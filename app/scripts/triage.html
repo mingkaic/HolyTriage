@@ -8,11 +8,11 @@
         </md-toolbar>
         <md-input-container style="margin-bottom:0">
             <label>Activity</label>
-            <input required name="activityName" ng-model="_ctrl.filterText" ng-change="_ctrl.filter()">
+            <input required name="activityName" ng-model="filterText" ng-change="filter()">
         </md-input-container>
         <md-list>
-            <md-list-item ng-repeat="it in _ctrl.activities">
-                <md-button ng-click="_ctrl.selectActivity(it, $index)" ng-class="{'selected' : it === _ctrl.selected }">
+            <md-list-item ng-repeat="it in activities">
+                <md-button ng-click="selectActivity(it, $index)" ng-class="{'selected' : it === selected }">
                     {{it.name}}
                 </md-button>
             </md-list-item>
@@ -25,7 +25,7 @@
             <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
                 <md-icon md-svg-icon="menu"></md-icon>
             </md-button>
-            <h1>{{ _ctrl.selected.name }}</h1>
+            <h1>{{ selected.name }}</h1>
         </md-toolbar>
 
         <md-content flex id="content">
@@ -34,22 +34,23 @@
                 <md-content layout-padding class="autoScroll">
                     <md-input-container>
                         <label>Activity</label>
-                        <input ng-model="_ctrl.selected.name" type="text" ng-required="true">
+                        <input ng-model="selected.name" type="text" ng-required="true">
                     </md-input-container>
                     <md-input-container>
                         <label>Deadline</label>
-                        <input ng-model="_ctrl.selected.deadline" class="datepicker" type="datetime" ng-required="true">
+                        <md-datepicker ng-model="selected.deadline" md-placeholder="Enter date" md-max-date="maxDate" ng-required='true'></md-datepicker>
                     </md-input-container>
+                    <div>{{selected.deadline}}</div>
                     <md-input-container md-no-float>
                         <label>Description</label>
-                        <input ng-model="_ctrl.selected.description" type="text">
+                        <input ng-model="selected.description" type="text">
                     </md-input-container>
                 </md-content>
                 <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-                    <md-button class="md-raised md-info" ng-click="_ctrl.createActivity()">New</md-button>
-                    <md-button class="md-raised md-primary" ng-click="_ctrl.saveActivity()">Save</md-button>
-                    <md-button class="md-raised md-danger" ng-click="_ctrl.cancelEdit()">Cancel</md-button>
-                    <md-button class="md-raised md-warn" ng-click="_ctrl.deleteActivity()">Delete</md-button>
+                    <md-button class="md-raised md-info" ng-click="createActivity()">New</md-button>
+                    <md-button class="md-raised md-primary" ng-click="saveActivity()">Save</md-button>
+                    <md-button class="md-raised md-danger" ng-click="cancelEdit()">Cancel</md-button>
+                    <md-button class="md-raised md-warn" ng-click="deleteActivity()">Delete</md-button>
                 </section>
             </div>
         </md-content>

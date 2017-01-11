@@ -22,8 +22,6 @@
     "angular-material": "^1.1.1",
     "angular-route": "^1.6.1",
     "bootstrap": "~3.3.5",
-    "jquery-ui": "^1.12.1",
-    "jquery": "^3.1.1",
-    "jqueryui-timepicker-addon": "^1.6.3"
+    "angular-messages": "^1.6.1"
   }
 }

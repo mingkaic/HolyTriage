@@ -1,54 +1,52 @@
 (function () {
 	'use strict';
 	angular.module('app')
-		.controller('triageController', ['triageService', '$q', '$mdDialog', TriageController]);
+		.controller('triageController', ['$scope', 'triageService', '$q', '$mdDialog', TriageController]);
 	
-	function TriageController(triageService, $q, $mdDialog) {
-		var ctrl = this;
-
-		ctrl.selected = null;
-		ctrl.activities = [];
-		ctrl.selectedIndex = 0;
-		ctrl.filterText = null;
-		ctrl.selectActivity = selectActivity;
-		ctrl.deleteActivity = deleteActivity;
-		ctrl.saveActivity = saveActivity;
-		ctrl.createActivity = createActivity;
-		ctrl.filter = filterActivity;
+	function TriageController($scope, triageService, $q, $mdDialog) {
+		$scope.selected = null;
+		$scope.activities = [];
+		$scope.selectedIndex = 0;
+		$scope.filterText = null;
+		$scope.selectActivity = selectActivity;
+		$scope.deleteActivity = deleteActivity;
+		$scope.saveActivity = saveActivity;
+		$scope.createActivity = createActivity;
+		$scope.filter = filterActivity;
 		
 		// Load initial data
 		getAllActivities();
 
 		function getAllActivities() {
 			triageService.getActivities().then(function (activities) {
-				ctrl.activities = [].concat(activities);
-				ctrl.selected = activities[0];
+				$scope.activities = [].concat(activities);
+				$scope.selected = activities[0];
 			});
 		}
 
 		function selectActivity (activity, index) {
-			ctrl.selected = angular.isNumber(activity) ? ctrl.activities[activity] : activity;
-			ctrl.selectedIndex = angular.isNumber(activity) ? activity: index;
+			$scope.selected = angular.isNumber(activity) ? $scope.activities[activity] : activity;
+			$scope.selectedIndex = angular.isNumber(activity) ? activity: index;
 		}
 		
 		function deleteActivity($event) {
 			var confirm = $mdDialog.confirm()
 				.title('Are you sure?')
-				.content('Are you sure want to delete ctrl activity?')
+				.content('Are you sure want to delete '+$scope.selected.name+' activity?')
 				.ok('Yes')
 				.cancel('No')
 				.targetEvent($event);
 			
 			$mdDialog.show(confirm).then(function () {
-				triageService.destroy(ctrl.selected.activity_id).then(function (affectedRows) {
-					ctrl.activities.splice(ctrl.selectedIndex, 1);
+				triageService.destroy($scope.selected.activity_id).then(function (affectedRows) {
+					$scope.activities.splice($scope.selectedIndex, 1);
 				});
 			}, function () { });
 		}
 		
 		function saveActivity($event) {
-			if (ctrl.selected != null && ctrl.selected.activity_id != null) {
-				triageService.update(ctrl.selected).then(function (affectedRows) {
+			if ($scope.selected != null && $scope.selected.activity_id != null) {
+				triageService.update($scope.selected).then(function (affectedRows) {
 					$mdDialog.show(
 						$mdDialog
 							.alert()
@@ -61,7 +59,7 @@
 				});
 			}
 			else {
-				triageService.create(ctrl.selected).then(function (affectedRows) {
+				triageService.create($scope.selected).then(function (affectedRows) {
 					$mdDialog.show(
 						$mdDialog
 							.alert()
@@ -76,18 +74,18 @@
 		}
 		
 		function createActivity() {
-			ctrl.selected = {};
-			ctrl.selectedIndex = null;
+			$scope.selected = { deadline: new Date() };
+			$scope.selectedIndex = null;
 		}
 		
 		function filterActivity() {
-			if (ctrl.filterText == null || ctrl.filterText == "") {
+			if ($scope.filterText == null || $scope.filterText == "") {
 				getAllActivities();
 			}
 			else {
-				triageService.getByName(ctrl.filterText).then(function (activities) {
-					ctrl.activities = [].concat(activities);
-					ctrl.selected = activities[0];
+				triageService.getByName($scope.filterText).then(function (activities) {
+					$scope.activities = [].concat(activities);
+					$scope.selected = activities[0];
 				});
 			}
 		}
