@@ -1,0 +1,22 @@
+{
+    "development": {
+        "host": "localhost",
+        "dialect": "sqlite",
+        "pool": {
+            "max": 5,
+            "min": 0,
+            "idle": 10000
+        },
+        "database": "triage.db",
+        "username": "bobby",
+        "password": "pin12345",
+        "storage": "triage.db"
+    },
+    "production": {
+        "username": "electron_triager",
+        "password": "tr1@g34lyf3",
+        "database": "triage_manager",
+        "host": "localhost",
+        "dialect": "mysql"
+    }
+}

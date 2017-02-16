@@ -1,31 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="app">
-  <head>
-    <title>Holy Triage</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+	<head>
+		<title>Holy Triage</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="css/styles.css" />
+	</head>
+	<body>
+		<my-tasks>Loading...</my-tasks>
+	</body>
+    <script type="text/javascript" src="../node_modules/core-js/client/shim.min.js"></script>
+    <script type="text/javascript" src="../node_modules/zone.js/dist/zone.min.js"></script>
+    <script type="text/javascript" src="../node_modules/rxjs/bundles/Rx.min.js"></script>
 
-    <link rel="stylesheet" href="../bower_components/angular-material/angular-material.css" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-
-    <!-- build:js scripts/ext.js -->
-    <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
-    <script type="text/javascript" src="../bower_components/angular-route/angular-route.js"></script>
-    <script type="text/javascript" src="../bower_components/angular-animate/angular-animate.js"></script>
-    <script type="text/javascript" src="../bower_components/angular-aria/angular-aria.js"></script>
-    <script type="text/javascript" src="../bower_components/angular-material/angular-material.js"></script>
-    <script type="text/javascript" src="../bower_components/angular-messages/angular-messages.js"></script>
-    <!-- endbuild -->
-  </head>
-  <body>
-    <ng-view></ng-view>
-  </body>
-
-  <!-- build:app scripts/render.js -->
-  <script type="text/javascript">
-    require('./scripts/renderer.js');
-    require('./scripts/service/triageService.js');
-    require('./scripts/triageController.js');
-  </script>
-  <!-- endbuild -->
+    <script type="text/javascript" src="../node_modules/@angular/core/bundles/core.umd.min.js"></script>
+    <script type="text/javascript" src="../node_modules/@angular/common/bundles/common.umd.min.js"></script>
+    <script type="text/javascript" src="../node_modules/@angular/compiler/bundles/compiler.umd.min.js"></script>
+    <script type="text/javascript" src="../node_modules/@angular/platform-browser/bundles/platform-browser.umd.min.js"></script>
+    <script type="text/javascript" src="../node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.min.js"></script>
+    <script type="text/javascript" src="../node_modules/@angular/forms/bundles/forms.umd.min.js"></script>
+    
+	<script type="text/javascript" src='app.component.js'></script>
+    <script type="text/javascript" src='app.module.js'></script>
+	<script type="text/javascript" src="renderer.js"></script>
 </html>

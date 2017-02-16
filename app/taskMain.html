@@ -1,0 +1,23 @@
+<h1>Tasks</h1>
+<div>
+	<input placeholder="Name" class="new-todo" [(ngModel)]="newTask.name">
+	<input placeholder="Description" class="new-todo" [(ngModel)]="newTask.description">
+	<input placeholder="Deadline (yyyy/mm/dd)" class="new-todo" [(ngModel)]="newTask.deadline">
+	<button (click)="addTask()">Add Task</button>
+</div>
+<table>
+	<thead>
+		<tr>
+			<th>Task Name</th>
+			<th>Description</th>
+			<th>Deadline</th>
+		</tr>
+	</thead>
+	<tbody *ngFor="let task of tasks">
+		<tr>
+			<td>{{task.name}}</td>
+			<td>{{task.description}}</td>
+			<td>{{task.deadline}}</td>
+		</tr>
+	</tbody>
+</table>

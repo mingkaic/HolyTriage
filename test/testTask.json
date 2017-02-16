@@ -1,0 +1,39 @@
+{
+    "sample_tasks": [
+        {
+            "taskId": 0,
+            "name": "T1",
+            "description": "donde esta la bibliotecha?",
+            "deadline": "2017-03-01T23:28:56.782Z",
+            "dependencies": [1, 4]
+        },
+        {
+            "taskId": 1,
+            "name": "T2",
+            "description": "donde esta la bibliotecha?",
+            "deadline": "2017-04-01T23:28:56.782Z",
+            "dependencies": [2]
+        },
+        {
+            "taskId": 2,
+            "name": "T3",
+            "description": "donde esta la bibliotecha?",
+            "deadline": "2017-03-03T23:28:56.782Z",
+            "dependencies": []
+        },
+        {
+            "taskId": 3,
+            "name": "T4",
+            "description": "donde esta la bibliotecha?",
+            "deadline": "2017-03-08T23:28:56.782Z",
+            "dependencies": [2]
+        },
+        {
+            "taskId": 4,
+            "name": "T5",
+            "description": "donde esta la bibliotecha?",
+            "deadline": "2017-02-28T23:28:56.782Z",
+            "dependencies": []
+        }
+    ]
+}
