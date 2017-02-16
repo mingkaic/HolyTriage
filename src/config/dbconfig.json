@@ -12,7 +12,7 @@
         "password": "pin12345",
         "storage": "triage.db"
     },
-    "production": {
+    "release": {
         "username": "electron_triager",
         "password": "tr1@g34lyf3",
         "database": "triage_manager",

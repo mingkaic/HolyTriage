@@ -53,4 +53,6 @@ bower_components
 .vscode
 
 # project specific
-build
+*.db
+cache
+release
