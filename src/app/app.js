@@ -45,5 +45,5 @@ app.on('ready', function () {
 	});
 
 	// Open the DevTools on open by default
-	mainWindow.webContents.openDevTools();
+	// mainWindow.webContents.openDevTools();
 });

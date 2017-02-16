@@ -4,7 +4,7 @@ const fs          = require('fs');
 const path        = require('path');
 const Sequelize   = require('sequelize');
 
-const env         = process.env.NODE_ENV || "development";
+const env         = process.env.NODE_ENV || "release";
 const config      = require(path.join(__dirname, '..', 'config', 'dbconfig.json'))[env];
 
 if (process.env.DATABASE_URL) {

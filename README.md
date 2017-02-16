@@ -4,5 +4,5 @@ A Todo List Sorting and Storing Application
 ## To Use
 
 ### Deployment
-> npm install --dev
+> npm --dev install
 > gulp

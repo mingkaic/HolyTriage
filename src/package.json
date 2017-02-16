@@ -11,7 +11,7 @@
     "start": "electron app/app.js",
     "clean": "rm sequelize.log",
     "devclean": "rm triage.db && npm run clean",
-    "install": "./node_modules/.bin/electron-rebuild",
+    "install": "npm --dev i && ./node_modules/.bin/electron-rebuild",
     "test": "node test/addTestDb.js && node test/readTestDb.js"
   },
   "author": "Ming Kai Chen",
